@@ -2,8 +2,8 @@
    <div class="sixteen wide tablet six wide computer column">
       <div class="item">
          <div class="ui icon input">
-            <input type="text" placeholder="Buscar" [(ngModel)]="search_string">
-            <a class="item" (click)="getProducts()" (keydown)="onKeydown($event)">
+            <input type="text" placeholder="Buscar" [(ngModel)]="search_string" (keydown)="onKeydown($event)">
+            <a class="item" (click)="getProducts()">
                <i class="search link icon"></i>
             </a>
          </div>
