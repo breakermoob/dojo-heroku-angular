@@ -1,5 +1,5 @@
 export class Product {
-   tittle: String;	
+   title: String;	
    thumbnail:String;
    price:number;
    address={
