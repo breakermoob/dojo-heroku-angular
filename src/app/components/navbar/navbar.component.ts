@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,  } from '@angular/core';
 
 declare var $: any;
 
@@ -8,9 +8,12 @@ declare var $: any;
   styleUrls: ['./navbar.component.css']
 })
 
+
+
 export class NavbarComponent implements OnInit {
 
   @Input() navbar: String;
+
 
   constructor() { }
 
@@ -23,13 +26,5 @@ export class NavbarComponent implements OnInit {
     $('.ui.labeled.icon.sidebar')
       .sidebar('toggle')
       ;
-    // $('.ui.left.sidebar').sidebar({
-    //   transition: 'overlay',
-    //   dimPage: false,
-    //   closable: false
-    // });
-
-    // $('.ui.left.sidebar')
-    //   .sidebar('attach events', '#menu');
   }
 }

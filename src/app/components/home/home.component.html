@@ -1,38 +1,18 @@
+<div class="ui grid top menu centered">
+   <div class="sixteen wide tablet six wide computer column">
+      <div class="item">
+         <div class="ui icon input">
+            <input type="text" placeholder="Buscar" [(ngModel)]="search_string">
+            <a class="item" (click)="getProducts()" (keydown)="onKeydown($event)">
+               <i class="search link icon"></i>
+            </a>
+         </div>
+      </div>
+   </div>
+</div>
+
 <div class="ui grid doubling stackable padded four column centered">
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
-   </div>
-   <div class="four wide column">
-      <app-product-card></app-product-card>
+   <div class="four wide column" *ngFor="let product of cards">
+      <app-product-card [product]="product"></app-product-card>
    </div>
 </div>

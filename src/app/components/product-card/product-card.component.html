@@ -1,20 +1,22 @@
-<div class="ui link centered  card">
+<div class="ui link centered card">
    <div class="image">
-      <img src="https://semantic-ui.com/images/avatar2/large/kristy.png">
+      <img src="{{product.thumbnail}}">
    </div>
    <div class="content">
-      <a class="header">Kristy</a>
+      <a class="header">
+         <i class="dollar sign icon"></i>
+         {{product.price}}
+      </a>
       <div class="meta">
-         <span class="date">Joined in 2013</span>
+         <span class="date">Cantidad: {{product.available_quantity}}</span>
       </div>
       <div class="description">
-         Kristy is an art director living in New York.
+         {{product.title}}
       </div>
    </div>
    <div class="extra content">
-      <a>
-         <i class="user icon"></i>
-         22 Friends
-      </a>
+      <p>
+            {{product.address.city_name}} - {{product.address.state_name}} 
+      </p>
    </div>
 </div>
