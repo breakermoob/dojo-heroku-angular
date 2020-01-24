@@ -12,7 +12,7 @@ declare var $: any;
 export class ProductDetailComponent implements OnInit {
 
   @Input() item: Item = this.mercadoapi.item;
-  @Input() images = this.item['pictures']
+  @Input() images:any = this.item['pictures']
 
   constructor(private mercadoapi: MercadolibreApiService) { }
 
