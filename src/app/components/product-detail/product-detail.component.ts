@@ -11,8 +11,8 @@ declare var $: any;
 })
 export class ProductDetailComponent implements OnInit {
 
-  @Input() item: Item[] = this.mercadoapi.item;
-  @Input() images: String[] = this.item['pictures']
+  @Input() item: Item = this.mercadoapi.item;
+  @Input() images = this.item['pictures']
 
   constructor(private mercadoapi: MercadolibreApiService) { }
 

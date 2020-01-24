@@ -15,7 +15,7 @@ const URL_GET_PRODUCT_BY_ID = "/items/"
 })
 export class MercadolibreApiService {
 
-  @Input() item:Item[] = [];
+  @Input() item:Item;
 
   constructor(private http: HttpClient) { }
 
