@@ -15,26 +15,20 @@ export class HomeComponent implements OnInit {
   products: String[];
   cards: String[] = ["", "", "", ""];
   randomSearch: String[] = ["Juegos de ps4", "Ropa", "Deportes", "Videojuegos", "Libros de ciencia", "Artes Marciales", "Relojes de hombre", "Audio", "Calzado de hombre", "Gamer"];
-  public suggestions = [
-    { title: 'Juegos de ps4' },
-    { title: 'Ropa de hombre' },
-    { title: 'Ropa de Mujer' },
-    { title: 'Juguetes para niño' },
-    { title: 'zapatos' },
-    { title: 'Computadores gamer' },
-    { title: 'Accesorios gamer' },
-  ];
 
 
   constructor(private mercadoapi: MercadolibreApiService) {
-
-    let i = Math.floor(Math.random() * (10 - 0));
-    console.log(i)
-    this.mercadoapi.get_products(this.randomSearch[i]).subscribe(result => {
-      this.products = result;
-      console.log(result)
-      this.cards = this.products['results'];
-    })
+    if (this.mercadoapi.products == null) {
+      let i = Math.floor(Math.random() * (10 - 0));
+      console.log(i)
+      this.mercadoapi.get_products(this.randomSearch[i]).subscribe(result => {
+        this.products = result;
+        this.cards = this.products['results'];
+      })
+    } else {
+      this.products = this.mercadoapi.products;
+      this.cards = this.mercadoapi.cards;
+    }
   }
 
   ngOnInit() {
