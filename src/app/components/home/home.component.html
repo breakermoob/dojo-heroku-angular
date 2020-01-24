@@ -11,8 +11,8 @@
    </div>
 </div>
 
-<div class="ui grid doubling stackable padded four column centered">
-   <div class="four wide column" *ngFor="let product of cards">
+<div class="ui grid padded four column centered">
+   <div class="eight wide mobile four wide tablet three wide computer column" *ngFor="let product of cards">
       <app-product-card [product]="product"></app-product-card>
    </div>
 </div>

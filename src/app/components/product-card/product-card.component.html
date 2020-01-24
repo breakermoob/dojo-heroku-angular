@@ -1,22 +1,24 @@
-<div class="ui link centered card">
-   <div class="image">
-      <img src="{{product.thumbnail}}">
-   </div>
-   <div class="content">
-      <a class="header">
-         <i class="dollar sign icon"></i>
-         {{product.price}}
-      </a>
-      <div class="meta">
-         <span class="date">Cantidad: {{product.available_quantity}}</span>
+<a (click)="seeMore(product.id)">
+   <div class="ui link centered card box">
+      <div class="image">
+         <img src="{{product.thumbnail}}">
       </div>
-      <div class="description">
-         {{product.title}}
+      <div class="content">
+         <a class="header">
+            <i class="dollar sign icon"></i>
+            {{product.price}}
+         </a>
+         <div class="meta">
+            <span class="date">Cantidad: {{product.available_quantity}}</span>
+         </div>
+         <div class="description truncate-text">
+            {{product.title}}
+         </div>
+      </div>
+      <div class="extra content">
+         <p>
+            {{product.address.city_name}} - {{product.address.state_name}}
+         </p>
       </div>
    </div>
-   <div class="extra content">
-      <p>
-            {{product.address.city_name}} - {{product.address.state_name}} 
-      </p>
-   </div>
-</div>
+</a>

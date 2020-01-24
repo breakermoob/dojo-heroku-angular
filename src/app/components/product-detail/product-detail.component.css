@@ -1,0 +1,37 @@
+.box{
+  height: 80vh;
+}
+
+.slides {
+  background: white;
+  width: 100%;
+}
+.slides .angle {
+  color: lightblue;
+  cursor: pointer;
+  position: relative;
+  bottom: 50%;
+  transform: scale(1);
+  transition: all .2s ease-in-out;
+  z-index: 10;
+}
+.slides .angle:hover {
+  transform: scale(1.7);
+}
+.slides .angle.right {
+  float: right;
+  margin-right: 1rem;
+}
+.slides .angle.left {
+  float: left;
+  margin-left: 1rem;
+}
+.slides .slide {
+  height: 100%;
+  padding: 2rem 5rem;
+  transition: all .2s ease-in-out;
+}
+.slides .slide:not(.active) {
+  display: none;
+}
+

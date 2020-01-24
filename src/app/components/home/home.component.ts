@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MercadolibreApiService } from '../../services/mercadolibre-api/mercadolibre-api.service';
 
-
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,17 @@ export class HomeComponent implements OnInit {
 
   products: String[];
   cards: String[] = ["", "", "", ""];
-  randomSearch:String[]=["Juegos de ps4", "Ropa", "Deportes", "Videojuegos","Libros de ciencia","Artes Marciales","Relojes de hombre","Audio","Calzado de hombre","Gamer"];
+  randomSearch: String[] = ["Juegos de ps4", "Ropa", "Deportes", "Videojuegos", "Libros de ciencia", "Artes Marciales", "Relojes de hombre", "Audio", "Calzado de hombre", "Gamer"];
+  public suggestions = [
+    { title: 'Juegos de ps4' },
+    { title: 'Ropa de hombre' },
+    { title: 'Ropa de Mujer' },
+    { title: 'Juguetes para niño' },
+    { title: 'zapatos' },
+    { title: 'Computadores gamer' },
+    { title: 'Accesorios gamer' },
+  ];
+
 
   constructor(private mercadoapi: MercadolibreApiService) {
 
@@ -28,13 +38,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   getProducts() {
     this.mercadoapi.get_products(this.search_string).subscribe(result => {
       this.products = result;
       this.cards = this.products['results'];
+      console.log(this.search_string)
     })
   }
 
@@ -43,6 +53,7 @@ export class HomeComponent implements OnInit {
       this.mercadoapi.get_products(this.search_string).subscribe(result => {
         this.products = result;
         this.cards = this.products['results'];
+        console.log(this.search_string)
       })
     }
   }
