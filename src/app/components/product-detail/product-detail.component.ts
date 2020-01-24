@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MercadolibreApiService } from '../../services/mercadolibre-api/mercadolibre-api.service';
 import { Item } from "../../entities/item";
 
@@ -11,8 +11,8 @@ declare var $: any;
 })
 export class ProductDetailComponent implements OnInit {
 
-  item: Item[] = this.mercadoapi.item;
-  images: String[] = this.item['pictures']
+  @Input() item: Item[] = this.mercadoapi.item;
+  @Input() images: String[] = this.item['pictures']
 
   constructor(private mercadoapi: MercadolibreApiService) { }
 
