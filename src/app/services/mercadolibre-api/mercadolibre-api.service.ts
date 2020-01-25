@@ -8,6 +8,7 @@ import { Item } from "../../entities/item";
 
 const URL_MERCADOAPI = "https://api.mercadolibre.com";
 const URL_GET_SEARCH = "/sites/MCO/search?q="
+const URL_GET_SEARCH_OFFSET = "&offset="
 const URL_GET_PRODUCT_BY_ID = "/items/"
 
 @Injectable({
@@ -19,16 +20,17 @@ export class MercadolibreApiService {
   @Input() products: String[];
   @Input() cards: String[];
   @Input() search_string: String;
+  @Input() max_offset: number;
 
   constructor(private http: HttpClient) { }
 
 
-  get_products(text): Observable<any> {
-    return this.http.get<String>(URL_MERCADOAPI + URL_GET_SEARCH + text).map(Response => {
+  get_products(text,offset): Observable<any> {
+    return this.http.get<String>(URL_MERCADOAPI + URL_GET_SEARCH + text + URL_GET_SEARCH_OFFSET + offset).map(Response => {
       let i = Response["results"].length;
       let j = Response["results"]
       for (let index = 0; index < i; index++) {
-        j[index].thumbnail = j[index].thumbnail.replace(/-I/i, "-P")
+        j[index].thumbnail = j[index].thumbnail.replace(/-I/i, "-V")
       }
       return Response
     });

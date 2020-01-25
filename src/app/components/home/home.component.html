@@ -3,7 +3,7 @@
       <div class="item">
          <div class="ui icon input">
             <input type="text" placeholder="Buscar" [(ngModel)]="search_string" (keydown)="onKeydown($event)">
-            <a class="item" (click)="getProducts()">
+            <a class="item" (click)="search()">
                <i class="search link icon"></i>
             </a>
          </div>
@@ -11,8 +11,36 @@
    </div>
 </div>
 
+<div class="ui grid padded one centered">
+   <div class="ui pagination menu centered">
+      <a class="icon item" (click)="previousPage()">
+         <i class="left arrow icon"></i>
+      </a>
+      <a class="active item">
+         {{count}}
+      </a>
+      <a class="icon item" (click)="nextPage()">
+         <i class="right arrow icon"></i>
+      </a>
+   </div>
+</div>
+
 <div class="ui grid padded four column centered">
    <div class="eight wide mobile four wide tablet three wide computer column" *ngFor="let product of cards">
       <app-product-card [product]="product"></app-product-card>
+   </div>
+</div>
+
+<div class="ui grid padded one centered">
+   <div class="ui pagination menu centered">
+      <a class="icon item" (click)="previousPage()">
+         <i class="left arrow icon"></i>
+      </a>
+      <a class="active item">
+         {{count}}
+      </a>
+      <a class="icon item" (click)="nextPage()">
+         <i class="right arrow icon"></i>
+      </a>
    </div>
 </div>
