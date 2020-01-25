@@ -1,7 +1,10 @@
 <div class="ui grid top menu centered">
-   <div class="sixteen wide tablet six wide computer column">
+   <div class="sixteen wide tablet eight wide computer column">
       <div class="item">
          <div class="ui icon input">
+            <a class="item right" (click)="randomSearch()">
+               <i class="eye link icon"></i>
+            </a>
             <input type="text" placeholder="Buscar" [(ngModel)]="search_string" (keydown)="onKeydown($event)">
             <a class="item" (click)="search()">
                <i class="search link icon"></i>

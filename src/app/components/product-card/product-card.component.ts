@@ -28,7 +28,6 @@ export class ProductCardComponent implements OnInit {
       if (result == null) {
         console.log('Id not found');
       } else {
-        console.log(result);
         this.mercadoapi.item = result;
         this.routes.navigate(['/detail']);
       }
