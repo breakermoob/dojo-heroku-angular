@@ -1,0 +1,36 @@
+<div class="div-void ui grid centered">
+   <div class="row">
+      <div class="sixteen wide tablet ten wide computer column">
+         <br>
+         <h1>CARRITO DE COMPRAS</h1>
+         <br>
+         <table class="ui very basic table">
+            <thead>
+               <tr>
+                  <th>Productos Seleccionados</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of shoping_car">
+                  <td><img src="{{item.thumbnail}}"></td>
+                  <td>{{item.title}}</td>
+                  <td>{{item.price | currency : 'USD' : 'symbol' : '1.0-0'}}</td>
+               </tr>
+            </tbody>
+         </table>
+         <br>
+      </div>
+   </div>
+   <div class="row">
+      <div class="sixteen wide tablet eight wide computer column"></div>
+      <div class="sixteen wide tablet two wide computer column">
+         <!-- <a href="https://ecommerce.pagosinteligentes.com/checkout/gateway.aspx" target="_blank"></a> -->
+         <div class="ui vertical animated blue fluid big button ml-color-blue" tabindex="0">
+            <div class="hidden content"> <i class="cart plus icon"></i></div>
+            <div class="visible content">
+               <h4 class="light">Pagar</h4>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

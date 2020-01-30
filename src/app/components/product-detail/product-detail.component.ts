@@ -12,7 +12,7 @@ declare var $: any;
 export class ProductDetailComponent implements OnInit {
 
   @Input() item: Item = this.mercadoapi.item;
-  @Input() images:any = this.item['pictures']
+  @Input() images: any = this.item['pictures']
 
   constructor(private mercadoapi: MercadolibreApiService) { }
 
@@ -37,10 +37,13 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCar() {
+    this.mercadoapi.shoping_car.push(this.item)
     $('.ui.basic.modal')
-      .modal('show')
-      ;
+      .modal('show');
   }
-
+  closeModal() {
+    $('.ui.basic.modal')
+      .modal('hide');
+  }
 
 }

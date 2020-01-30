@@ -21,6 +21,7 @@ export class MercadolibreApiService {
   @Input() cards: String[];
   @Input() search_string: String;
   @Input() max_offset: number;
+  @Input() shoping_car: Item[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +38,12 @@ export class MercadolibreApiService {
   }
   get_product_by_id(id): Observable<any> {
     return this.http.get<String>(URL_MERCADOAPI + URL_GET_PRODUCT_BY_ID + id).map(Response => {
+      console.log(Response)
+      if (Response["shipping"].free_shipping==true) {
+        Response["shipping"].free_shipping = "Envío Gratis";
+      } else {
+        Response["shipping"].free_shipping = "El envío se acuerda con el vendedor";
+      }
       return Response
     });
   }

@@ -5,8 +5,7 @@
       </div>
       <div class="content">
          <a class="header">
-            <i class="dollar sign icon"></i>
-            {{product.price}}
+            {{product.price | currency}}
          </a>
          <div class="meta">
             <span class="date">Cantidad: {{product.available_quantity}}</span>

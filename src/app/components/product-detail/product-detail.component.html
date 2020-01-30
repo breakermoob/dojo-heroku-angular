@@ -22,13 +22,14 @@
       <div class="ui label">
          <i class="hand point right outline icon"></i> {{item.sold_quantity}} Vendidos
       </div>
-      <h4 class="ui disabled header" style="text-decoration: line-through;">{{item.original_price}}</h4>
-      <h1 class="ui header">${{item.price}}</h1>
+      <h4 class="ui disabled header" style="text-decoration: line-through;">{{item.original_price | currency : 'USD' : 'symbol' : '1.0-0'}}</h4>
+      <h1 class="ui up-size huge header light">{{item.price | currency : 'USD' : 'symbol' : '1.0-0'}}</h1>
+      <h4 class="ui header ml-color-green light"> <i class="shipping fast icon"></i>{{item.shipping.free_shipping}}</h4>
       <h3 class="ui header">Garantía: {{item.warranty}}</h3>
-      <div class="ui vertical animated blue fluid big button" tabindex="0" (click)="addToCar()">
-         <div class="hidden content"> <i class="shop icon"></i></div>
+      <div class="ui vertical animated blue fluid big button ml-color-blue" tabindex="0" (click)="addToCar()">
+         <div class="hidden content"> <i class="cart plus icon"></i></div>
          <div class="visible content">
-            Agregar al Carrito
+            <h4 class="light">Comprar</h4>
          </div>
       </div>
    </div>
@@ -40,12 +41,12 @@
       Producto agregadocon exito al carrito de compras.
    </div>
    <div class="actions center aligned">
-      <div class="ui grey basic cancel inverted button">
+      <div class="ui grey basic cancel inverted button" (click)="closeModal()">
          <i class="reply icon"></i>
          Quiero seguir comprando
       </div>
-      <div class="ui green ok inverted button">
-         <i class="shopping cart icon"></i>
+      <div class="ui green ok inverted button" (click)="closeModal()" routerLink="/shoping-car">
+         <i class="cart plus icon"></i>
          Quiero ir al carrito
       </div>
    </div>

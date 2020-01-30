@@ -5,7 +5,10 @@ export class Item {
         url: String,
     };
     sold_quantity: number;
-    price:number;
-    original_price:number;
-    warranty:String;
+    price: number;
+    original_price: number;
+    warranty: String;
+    shipping = {
+        free_shipping: Boolean,
+    };
 }

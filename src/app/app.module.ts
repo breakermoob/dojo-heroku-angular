@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ShopingCarComponent } from './components/shoping-car/shoping-car.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     FooterComponent,
     ProductCardComponent,
     ProductDetailComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ShopingCarComponent
   ],
   imports: [
     BrowserModule,
