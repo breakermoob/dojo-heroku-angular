@@ -41,7 +41,6 @@ export class MercadolibreApiService {
 
   get_seller(id): Observable<any> {
     return this.http.get<String>(URL_MERCADOAPI + URL_GET_SELLER + id).map(Response => {
-      console.log(Response["seller"].nickname)
       return Response["seller"].nickname
     });
   }

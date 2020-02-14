@@ -17,10 +17,13 @@ export class ProductCardComponent implements OnInit {
   @Input() item: String;
   @Input() "product-card": String;
 
-  constructor(private mercadoapi: MercadolibreApiService,  public routes: Router) {
+  constructor(private mercadoapi: MercadolibreApiService, public routes: Router) {
   }
 
   ngOnInit() {
+    this.mercadoapi.get_seller(this.product["seller"].id).subscribe(result => {
+      this.product["seller"].name = result;
+    })
   }
 
   seeMore(id) {

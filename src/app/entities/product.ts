@@ -9,6 +9,7 @@ export class Product {
    };
    seller={
       id:String,
+      name:String,
    };
    available_quantity:number;
 }
