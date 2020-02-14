@@ -24,15 +24,15 @@ export class HomeComponent implements OnInit {
   cards: String[];
   randomItems: String[] = [
     "Juegos de ps4", "Ropa Adidas", "Deportes Extremos",
-    "Videojuegos xbox","Libros de youtubers", "Judo",
+    "Videojuegos xbox", "Libros de youtubers", "Judo",
     "smartwatch", "audifonos", "Portatiles Gamer",
-    "Accesorios para Vehículos","Alimentos","Mascotas",
-    "Antigüedades","Arte","Bebés","Belleza","Cámaras",
-    "Carro","Celulares","Computación","Fitness",
-    "Electrodomésticos","Electrónica","Construcción",
-    "Hogar","Oficinas","Inmuebles","Instrumentos Musicales",
-    "Juegos","Comics","Música","Fiestas","Joyas","Salud",
-    "Gamer","Motos","Xiaomi","Lenovo","Mazda cx5","bmw"];
+    "Accesorios para Vehículos", "Alimentos", "Mascotas",
+    "Antigüedades", "Arte", "Bebés", "Belleza", "Cámaras",
+    "Carro", "Celulares", "Computación", "Fitness",
+    "Electrodomésticos", "Electrónica", "Construcción",
+    "Hogar", "Oficinas", "Inmuebles", "Instrumentos Musicales",
+    "Juegos", "Comics", "Música", "Fiestas", "Joyas", "Salud",
+    "Gamer", "Motos", "Xiaomi", "Lenovo", "Mazda cx5", "bmw"];
 
 
   constructor(private mercadoapi: MercadolibreApiService) {
@@ -53,21 +53,22 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  randomSearch(){
+  randomSearch() {
     let i = Math.floor(Math.random() * 40);
     this.search_string = this.randomItems[i];
     this.save_string = this.search_string;
     this.getProducts()
   }
 
-  getProducts() {
-    this.mercadoapi.get_products(this.search_string, this.offset).subscribe(result => {
+     getProducts() {
+     this.mercadoapi.get_products(this.search_string, this.offset).subscribe(result => {
       this.products = result;
       this.cards = this.products['results'];
       this.max_offset = this.products['paging'].total;
       this.mercadoapi.search_string = this.search_string;
     })
   }
+
 
   search() {
     if (this.save_string === this.search_string) {

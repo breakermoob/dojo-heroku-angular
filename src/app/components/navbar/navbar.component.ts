@@ -8,8 +8,6 @@ declare var $: any;
   styleUrls: ['./navbar.component.css']
 })
 
-
-
 export class NavbarComponent implements OnInit {
 
   @Input() navbar: String;

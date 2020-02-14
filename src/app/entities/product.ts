@@ -7,5 +7,8 @@ export class Product {
       state_name:String,
       city_name:String
    };
+   seller={
+      id:String,
+   };
    available_quantity:number;
 }
